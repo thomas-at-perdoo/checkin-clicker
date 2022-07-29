@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/checkin-clicker/static/css/main.7c6ffe29.css",
+    "main.js": "/checkin-clicker/static/js/main.c2fa1dd7.js",
+    "index.html": "/checkin-clicker/index.html",
+    "main.7c6ffe29.css.map": "/checkin-clicker/static/css/main.7c6ffe29.css.map",
+    "main.c2fa1dd7.js.map": "/checkin-clicker/static/js/main.c2fa1dd7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c6ffe29.css",
+    "static/js/main.c2fa1dd7.js"
+  ]
+}
