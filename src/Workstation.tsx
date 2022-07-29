@@ -2,7 +2,7 @@ import confetti from 'canvas-confetti';
 import clsx from 'clsx';
 import _ from 'lodash';
 import React, {
-  useEffect, useMemo, useRef, useState,
+  useLayoutEffect, useMemo, useRef, useState,
 } from 'react';
 import { Computer } from './Computer';
 import { Table } from './Table';
@@ -24,8 +24,7 @@ const getDelay = (effects: Effects) => {
 export const Workstation = ({ onClick, effects }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const windowSize = useWindowDimensions();
-  const [clickable, setClickable] = useState<boolean>();
-  const [aiControlled, setAiControlled] = useState<boolean>(false);
+  const [clickable, setClickable] = useState<boolean>(false);
 
   const shootConfetti = () => {
     if (_.isNil(ref.current)) return;
@@ -47,11 +46,10 @@ export const Workstation = ({ onClick, effects }: Props) => {
     setClickable(false);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (clickable) {
       if (effects.autoCheckinEnabled) {
         checkIn();
-        setAiControlled(true);
       }
       return () => {};
     }
@@ -75,7 +73,7 @@ export const Workstation = ({ onClick, effects }: Props) => {
       <div className="relative h-32 w-36">
         {clickable && (<img className={clsx('absolute z-40 -top-14', employeeLeft)} src="/arrow.gif" alt="Arrow" />)}
         <img className={clsx('absolute', employeeLeft)} src="/chair.png" alt="Chair" />
-        {aiControlled ? (<img className={clsx('absolute -top-6 -m-[2px]', employeeLeft)} src="/cyborg.png" alt="Employee" />) : (<img className={clsx('absolute -top-1', employeeLeft)} src="/employee.png" alt="Employee" />)}
+        {effects.autoCheckinEnabled ? (<img className={clsx('absolute -top-6 -m-[2px]', employeeLeft)} src="/cyborg.png" alt="Employee" />) : (<img className={clsx('absolute -top-1', employeeLeft)} src="/employee.png" alt="Employee" />)}
         <Computer className={clsx('absolute top-14 left-8 z-30', computerLeft)} />
         <Table className="absolute top-14 z-20" />
       </div>

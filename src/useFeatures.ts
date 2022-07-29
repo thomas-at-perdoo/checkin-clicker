@@ -48,7 +48,6 @@ export const useFeatures = (): UseFeaturesPayload => {
       enabled: false,
       effects: {
         reducedDelay: 1,
-        autoCheckinEnabled: true,
       },
     },
     {

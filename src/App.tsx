@@ -69,8 +69,8 @@ export const App = () => {
           <img src="/plant1.png" alt="Plant" />
 
           <div className="flex flex-wrap gap-x-8 gap-y-24">
-            {(_.range(18).map(() => (
-              <Workstation effects={effects} onClick={() => setScore((x) => x + 1)} />
+            {(_.range(18).map((i) => (
+              <Workstation key={i} effects={effects} onClick={() => setScore((x) => x + 1)} />
             )))}
           </div>
 
@@ -79,6 +79,7 @@ export const App = () => {
         <aside className="w-1/4 space-y-4">
           {features.map((feature) => (
             <FeatureButton
+              key={feature.tag}
               disabled={score < feature.cost}
               feature={feature}
               onClick={() => enableFeature(feature.tag)}
