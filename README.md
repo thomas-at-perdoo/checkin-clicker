@@ -1,5 +1,11 @@
 # Check-in clicker
 
+### Demo
+
+[Live demo](https://thomas-at-perdoo.github.io/)
+
+### Description
+
 You are the ambassador of a small company. Your colleagues rarely check-in in Perdoo.
 Your job is to reach 1 check-in per user per week.
 
